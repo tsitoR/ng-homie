@@ -33,9 +33,8 @@ export class CardListItemDirective {}
   standalone: true,
 })
 export class CardComponent<T> {
-  @Input({ required: true }) list: T[] = [];
+  @Input() list: T[] | undefined = [] as T[] | undefined;
   @ContentChild(CardListItemDirective, { read: TemplateRef }) row: TemplateRef<{
     $implicit: T;
   }> | undefined;
-  @Output() details = new EventEmitter<void>();
 }
